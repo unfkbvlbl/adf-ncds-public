@@ -14,7 +14,7 @@ jobs:
   exportAdfArmTemplates:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    environment: dev
+    environment: test
     
     steps:
     - name: Check out repository code
@@ -31,3 +31,19 @@ jobs:
       uses: Azure/data-factory-validate-action@v1.1.5
       with:
          path: ./src [optional]
+         
+    - name: Login via Az module
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        enable-AzPSSession: true
+        
+        
+    - name: Deploy resources
+      uses: Azure/data-factory-deploy-action@v1.2.0
+      with:
+        resourceGroupName: rg-ncds-test
+        dataFactoryName: adf-ncds-test
+        armTemplateFile: '${{ steps.export.outputs.arm-template-directory }}/ARMTemplateForFactory.json'
+        additionalParameters: 'factoryName=adf-ncds-test'
+
