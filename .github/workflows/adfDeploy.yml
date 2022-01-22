@@ -17,9 +17,12 @@ jobs:
     environment: dev
     
     steps:
+    - name: Check out repository code
+      uses: actions/checkout@v2
+        
     - name: Export ARM Template
       id: export
       uses: Azure/data-factory-export-action@v1.0.2
       with:
         id: '/subscriptions/c059c401-bbbb-4dac-be3c-12b3a41c77ee/resourceGroups/rg-ncds-dev/providers/Microsoft.DataFactory/factories/adf-ncds-dev'
-        echo: ${{ steps.export.outputs.arm-template-directory }}
+       
