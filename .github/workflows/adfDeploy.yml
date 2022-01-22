@@ -21,6 +21,6 @@ jobs:
       id: export
       uses: Azure/data-factory-export-action@v1.0.2
       with:
-        path: './src/build'
+        path: 'src/build'
         id: '/subscriptions/c059c401-bbbb-4dac-be3c-12b3a41c77ee/resourceGroups/rg-ncds-dev/providers/Microsoft.DataFactory/factories/adf-ncds-dev'
         
