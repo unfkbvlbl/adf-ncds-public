@@ -1,0 +1,35 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy to Dev
+
+# Controls when the workflow will run
+on:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    environment: dev
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - name: Login via Az module
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        enable-AzPSSession: true 
+
+    - name: Deploy resources
+      uses: Azure/data-factory-deploy-action@v1.2.0
+      with:
+        resourceGroupName: rg-ncds-dev
+        dataFactoryName: adf-ncds-dev
+        armTemplateFile: myArmTemplate.json
+        # armTemplateParametersFile: myArmTemplateParameters.json [optional]
+        # additionalParameters: 'key1=value key2=value keyN=value' [optional]
+        # skipAzModuleInstallation: true [optional]
