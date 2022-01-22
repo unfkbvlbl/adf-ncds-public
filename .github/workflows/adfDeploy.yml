@@ -22,10 +22,3 @@ jobs:
       uses: Azure/data-factory-export-action@v1.0.2
       with:
         path: ./src
-
-    - name: Login via Az module
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-        enable-AzPSSession: true 
-
