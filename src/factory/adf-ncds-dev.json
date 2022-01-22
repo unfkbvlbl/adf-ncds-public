@@ -1,0 +1,9 @@
+{
+	"name": "adf-ncds-dev",
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f0821aca-ed2b-4c28-8913-85a19df4a867",
+		"tenantId": "d9ca5ff2-7de3-47ca-a045-7342e1dee089"
+	}
+}
