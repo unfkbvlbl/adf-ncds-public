@@ -46,5 +46,5 @@ jobs:
         dataFactoryName: adf-ncds-test
         armTemplateFile: '${{ steps.export.outputs.arm-template-directory }}/ARMTemplateForFactory.json'
         armTemplateParametersFile: '${{ steps.export.outputs.arm-template-directory }}/ARMTemplateParametersForFactory.json'
-        additionalParameters: 'factoryName=adf-ncds-test'
+        additionalParameters: 'factoryName=adf-ncds-test ls_adls_properties_typeProperties_url=https://adlsvgtest.dfs.core.windows.net'
 
