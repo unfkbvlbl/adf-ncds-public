@@ -1,6 +1,11 @@
 {
 	"name": "ls_postgresql",
 	"properties": {
+		"parameters": {
+			"connStringSecret": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "PostgreSql",
 		"typeProperties": {
