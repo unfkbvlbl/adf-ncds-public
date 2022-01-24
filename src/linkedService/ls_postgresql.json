@@ -15,7 +15,7 @@
 					"referenceName": "ls_azurekeyvault",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "dfdsfsdf"
+				"secretName": "@linkedService().connStringSecret"
 			}
 		}
 	}
