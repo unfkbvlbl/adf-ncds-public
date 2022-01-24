@@ -10,6 +10,12 @@
         },
         "ls_azurekeyvault_properties_typeProperties_baseUrl": {
             "value": "https://kv-ncds-test.vault.azure.net/"
+        },
+        "ls_sqlserver_properties_typeProperties_connectionString_secretName": {
+            "value": "@linkedService().connStringSecret"
+        },
+        "ls_postgresql_properties_typeProperties_connectionString_secretName": {
+            "value": "@linkedService().connStringSecret"
         }
     }
 }
