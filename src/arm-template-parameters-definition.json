@@ -99,7 +99,7 @@
                     "resourceGroupName": "=",
                     "tenant": "=",
                     "dataLakeStoreUri": "=",
-                    "baseUrl": "=",
+                    "baseUrl": "-",
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
