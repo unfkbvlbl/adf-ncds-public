@@ -45,5 +45,5 @@ jobs:
         resourceGroupName: rg-ncds-test
         dataFactoryName: adf-ncds-test
         armTemplateFile: '${{ steps.export.outputs.arm-template-directory }}/ARMTemplateForFactory.json'
-        armTemplateParametersFile: '${{ steps.export.outputs.arm-template-directory }}/build/parameters/armTemplateParameters-TEST.json'
+        armTemplateParametersFile: 'build/parameters/armTemplateParameters-TEST.json'
         
