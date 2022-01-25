@@ -1,0 +1,7 @@
+{
+	"name": "ir-aws-v2",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "replacement IR"
+	}
+}
