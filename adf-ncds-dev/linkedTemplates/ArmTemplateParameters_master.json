@@ -43,6 +43,9 @@
 		"ls_sqlserver_properties_typeProperties_connectionString_secretName": {
 			"value": "@linkedService().connStringSecret"
 		},
+		"ls_azuresql_properties_typeProperties_connectionString_secretName": {
+			"value": "@linkedService().connStringSecret"
+		},
 		"containerUri": {
 			"value": ""
 		},
