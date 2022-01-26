@@ -1,0 +1,102 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-ncds-dev"
+		},
+		"ls_adls_properties_typeProperties_url": {
+			"type": "string"
+		},
+		"ls_azurekeyvault_properties_typeProperties_baseUrl": {
+			"type": "string"
+		},
+		"ls_postgresql_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "@linkedService().connStringSecret"
+		},
+		"ls_sftp_properties_typeProperties_host": {
+			"type": "object",
+			"defaultValue": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "ls_azurekeyvault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": {
+					"value": "@linkedService().hostSecret",
+					"type": "Expression"
+				}
+			}
+		},
+		"ls_sftp_properties_typeProperties_userName": {
+			"type": "object",
+			"defaultValue": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "ls_azurekeyvault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": {
+					"value": "@linkedService().userNameSecret",
+					"type": "Expression"
+				}
+			}
+		},
+		"ls_sqlserver_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "@linkedService().connStringSecret"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-ncds-dev_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_adls_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls_properties_typeProperties_url')]"
+					},
+					"ls_azurekeyvault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('ls_azurekeyvault_properties_typeProperties_baseUrl')]"
+					},
+					"ls_postgresql_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('ls_postgresql_properties_typeProperties_connectionString_secretName')]"
+					},
+					"ls_sftp_properties_typeProperties_host": {
+						"value": "[parameters('ls_sftp_properties_typeProperties_host')]"
+					},
+					"ls_sftp_properties_typeProperties_userName": {
+						"value": "[parameters('ls_sftp_properties_typeProperties_userName')]"
+					},
+					"ls_sqlserver_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('ls_sqlserver_properties_typeProperties_connectionString_secretName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

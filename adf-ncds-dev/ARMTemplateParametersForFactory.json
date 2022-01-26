@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-ncds-dev"
+		},
+		"ls_adls_properties_typeProperties_url": {
+			"value": ""
+		},
+		"ls_azurekeyvault_properties_typeProperties_baseUrl": {
+			"value": ""
+		},
+		"ls_postgresql_properties_typeProperties_connectionString_secretName": {
+			"value": "@linkedService().connStringSecret"
+		},
+		"ls_sftp_properties_typeProperties_host": {
+			"value": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "ls_azurekeyvault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": {
+					"value": "@linkedService().hostSecret",
+					"type": "Expression"
+				}
+			}
+		},
+		"ls_sftp_properties_typeProperties_userName": {
+			"value": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "ls_azurekeyvault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": {
+					"value": "@linkedService().userNameSecret",
+					"type": "Expression"
+				}
+			}
+		},
+		"ls_sqlserver_properties_typeProperties_connectionString_secretName": {
+			"value": "@linkedService().connStringSecret"
+		}
+	}
+}
