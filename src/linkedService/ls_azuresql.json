@@ -1,0 +1,25 @@
+{
+	"name": "ls_azuresql",
+	"properties": {
+		"parameters": {
+			"connStringSecret": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "ls_azurekeyvault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": {
+					"value": "@linkedService().connStringSecret",
+					"type": "Expression"
+				}
+			}
+		}
+	}
+}
