@@ -7,6 +7,14 @@ Describe 'placeholder Pester' {
     $name | Should -Be 'Peter'
   
   }
+  
+  It 'Test Name' {
+    
+    $name = 'Peter'
+    
+    $name | Should -Be 'Peter'
+  
+  }
 
 
 }
