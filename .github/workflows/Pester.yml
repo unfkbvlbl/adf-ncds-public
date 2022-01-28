@@ -1,4 +1,4 @@
-name: Deploy to TEST
+name: Pester TEST
 
 # Controls when the workflow will run
 on:
