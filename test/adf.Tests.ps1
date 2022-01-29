@@ -1,18 +1,24 @@
+param (
+
+    [string]
+    $name1,
+
+
+    [string]
+    $name2
+
+)
 Describe 'placeholder Pester' {
 
-  $name  = 'Peter'
-  
-  It 'Test Name' {
+  It 'Test Name1' {
     
-    $name | Should -Be 'Peter'
+    $name1 | Should -Be 'Peter'
   
   }
   
-  It 'Test Name' {
-    
-    $name = 'Peter'
-    
-    $name | Should -Be 'Peter'
+  It 'Test Name2' {
+
+    $name2 | Should -Be 'Peter'
   
   }
 
