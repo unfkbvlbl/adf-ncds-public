@@ -24,6 +24,7 @@ jobs:
         inlineScript: |
           ls
           ls ./test
+        azPSVersion: "latest"
       
     - name: Run Pester
       uses: azure/powershell@v1
