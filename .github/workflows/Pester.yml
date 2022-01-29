@@ -22,5 +22,6 @@ jobs:
       uses: azure/powershell@v1
       with:
         inlineScript: |
-          Invoke-Pester ./test/adf.Tests.ps1
+          $tests= @(@{'Path' = './test/adf.Tests.ps1'; 'Parameters' = @{ 'name1' = 'kevin'; 'name2' = 'Peter'}})
+          Invoke-Pester -Script $tests
         azPSVersion: "latest"
