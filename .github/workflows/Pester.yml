@@ -22,5 +22,10 @@ jobs:
       uses: azure/powershell@v1
       with:
         inlineScript: |
-          'test/RunTests.ps1'
+          $containers = @(
+            New-PesterContainer -Path '.\tests\test1.Tests.ps1' -Data @{ 'name1' = 'kevin'; 'name2' = 'Peter'}
+            New-PesterContainer -Path '.\tests\test2.Tests.ps1' -Data @{ 'name1' = 'Peter'; 'name2' = 'James'}
+          )
+          Invoke-Pester -Container $containers
+          
         azPSVersion: "latest"
