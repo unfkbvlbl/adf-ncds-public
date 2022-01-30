@@ -22,5 +22,5 @@ jobs:
       uses: azure/powershell@v1
       with:
         inlineScript: |
-          Invoke-Pester -Script 'test/RunTests.ps1'
+          'test/RunTests.ps1'
         azPSVersion: "latest"
