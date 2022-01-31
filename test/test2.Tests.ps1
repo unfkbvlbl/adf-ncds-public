@@ -17,7 +17,7 @@ Describe "Describe Test 2" {
         }
 
         It "Asset Param 2" {
-            $name2| Should -Be 'paul'
+            $name2| Should -Be 'Jono'
         }
     }
 }
