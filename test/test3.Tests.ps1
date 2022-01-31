@@ -6,7 +6,7 @@ Describe "Describe Test 3" {
             "NCDS-DB", "VG-DB", "FunDB"
         ){
             
-            $_ | Should -Be 'FunDB'
+            $_ | Should -Be 'NCDS-DB'
         }
     }
 }
