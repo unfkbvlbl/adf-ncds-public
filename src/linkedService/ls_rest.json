@@ -1,0 +1,17 @@
+{
+	"name": "ls_rest",
+	"properties": {
+		"parameters": {
+			"resource": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "http://datapoint.metoffice.gov.uk/public/data",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
