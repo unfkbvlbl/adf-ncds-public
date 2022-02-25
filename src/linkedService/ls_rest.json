@@ -1,12 +1,19 @@
 {
 	"name": "ls_rest",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "http://datapoint.metoffice.gov.uk/public/data",
+			"url": "http://datapoint.metoffice.gov.uk/public/data/",
 			"enableServerCertificateValidation": true,
-			"authenticationType": "Anonymous"
+			"authenticationType": "Anonymous",
+			"authHeaders": {
+				"X-API-KEY": {
+					"type": "SecureString",
+					"value": "**********"
+				}
+			}
 		}
 	}
 }
